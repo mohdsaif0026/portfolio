@@ -933,7 +933,7 @@
                         <div class="contact-form-wrapper">
                             <div class="introduce">
 
-                                <form action="https://formspree.io/f/xleyygrp" method="POST" class="row"
+                                <form id="contact-form" class="row"
                                     target="_blank">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -1038,6 +1038,29 @@
     <script src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
     <script src="assets/js/main.js"></script>
+	<!-- contact -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+            $('#contact-form').on('submit', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: 'https://formspree.io/f/xleyygrp',
+                    method: 'POST',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+                        alert('Your message has been sent successfully!');
+                        $('#contact-form')[0].reset();
+                    },
+                    error: function(err) {
+                        alert('There was an error sending your message. Please try again.');
+                    }
+                });
+            });
+        });
+	</script>
 </body>
 
 </html>
