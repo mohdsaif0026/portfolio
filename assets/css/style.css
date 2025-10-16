@@ -156,6 +156,25 @@
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
 }
+/* Make keyboard focus rings visible and high-contrast */
+a:focus, button:focus, input:focus, .rn-btn:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Ensure skip link becomes visible when focused */
+.sr-only:focus, .skip-link:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  clip: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+}
+
+.modal .modal-body { color: #222; }
+.modal .modal-header .close { background: transparent; border: none; }
 
 /* Reserve thumbnail height to reduce CLS (adjust values as needed) */
 .rn-portfolio .thumbnail { display:block; height: 200px; overflow: hidden; }

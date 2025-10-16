@@ -29,6 +29,17 @@ Next recommended steps (you should run these locally)
      powershell.exe -ExecutionPolicy Bypass -File .\scripts\convert-images.ps1 -SourceDir "assets/images/port" -Quality 80
    - Replace `img` tags with a `<picture>` element to serve WebP with JPG/PNG fallback for browsers that don't support WebP.
 
+   To also create responsive resized WebP variants (recommended):
+
+   - Install ImageMagick (recommended) so the script can resize images. If you don't have ImageMagick, the script will fall back to `cwebp` but without resizing.
+   - Run the resize script (creates -400.webp, -800.webp, -1200.webp variants):
+
+     ```powershell
+     powershell -ExecutionPolicy Bypass -File .\scripts\generate-webp-resize.ps1 -SourceDir "assets/images/port" -Quality 80
+     ```
+
+   - The HTML in `index.html` has been updated to use responsive `srcset` entries for portfolio images. After running the script, verify the generated files exist (e.g. `assets/images/port/01-800.webp`) and test in the browser.
+
 2) Run Lighthouse / PageSpeed locally and iterate
    - Use Chrome DevTools Lighthouse (Audits -> Lighthouse) or CLI:
      npm install -g lighthouse
