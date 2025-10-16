@@ -1062,20 +1062,20 @@
                         <div class="contact-form-wrapper">
                             <div class="introduce">
 
-                                <form id="contact-form" class="row" target="_blank">
+                                <form id="contact-form" class="row" action="https://formspree.io/f/xleyygrp" method="POST">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
-                                            <input aria-label="Your name" class="form-control form-control-lg" name="contact-name"
-                                                id="contact-name" type="text">
+                                            <input aria-label="Your name" class="form-control form-control-lg" name="name"
+                                                id="contact-name" type="text" required minlength="2" maxlength="80">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-phone">Phone Number</label>
-                                            <input aria-label="Phone number" class="form-control" name="contact-phone" id="contact-phone"
-                                                type="text">
+                                            <input aria-label="Phone number" class="form-control" name="phone" id="contact-phone"
+                                                type="tel" inputmode="tel" pattern="[+0-9\-()\s]{7,20}" title="Use digits and + - ( )">
                                         </div>
                                     </div>
 
@@ -1083,14 +1083,14 @@
                                         <div class="form-group">
                                             <label for="contact-email">Email</label>
                                             <input aria-label="Email address" class="form-control form-control-sm" id="contact-email"
-                                                name="contact-email" type="email">
+                                                name="email" type="email" required autocomplete="email">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="subject">Subject</label>
-                                            <input aria-label="Subject" class="form-control form-control-sm" id="subject" name="subject"
+                                            <input aria-label="Subject" class="form-control form-control-sm" id="subject" name="_subject"
                                                 type="text">
                                         </div>
                                     </div>
@@ -1098,10 +1098,13 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Your Message</label>
-                                            <textarea aria-label="Message" name="contact-message" id="contact-message" cols="30"
-                                                rows="10"></textarea>
+                                            <textarea aria-label="Message" name="message" id="contact-message" cols="30"
+                                                rows="10" required minlength="5"></textarea>
                                         </div>
                                     </div>
+
+                                    <!-- Formspree redirect target (absolute URL set at runtime) -->
+                                    <input type="hidden" name="_next" id="fs-next" value="">
 
                                     <div class="col-lg-12">
                                         <button name="submit" type="submit" id="submit" class="rn-btn">
@@ -1206,36 +1209,24 @@
         })();
     </script>
     <script>
-        $(document).ready(function () {
-            $('#contact-form').on('submit', function (event) {
-                event.preventDefault();
-
-                $.ajax({
-                    url: 'https://formspree.io/f/xleyygrp',
-                    method: 'POST',
-                    data: $(this).serialize(),
-                    dataType: 'json',
-                    success: function (data) {
-                        alert('Your message has been sent successfully!');
-                        $('#contact-form')[0].reset();
-                    },
-                    error: function (err) {
-                        alert('There was an error sending your message. Please try again.');
-                    }
-                });
+        // Set Formspree redirect to thanks.html (absolute URL) and keep modal focus behavior
+        (function(){
+            var next = document.getElementById('fs-next');
+            if(next){
+                var base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+                next.value = base + 'thanks.html';
+            }
+            $(document).ready(function(){
+                var lastFocus;
+                document.addEventListener('click', function(e){
+                    var t = e.target.closest('[data-toggle="modal"]');
+                    if (t) { lastFocus = document.activeElement; }
+                }, true);
+                $('#exampleModalCenter').on('shown.bs.modal', function () { $(this).focus(); });
+                $('#exampleModalCenter').on('hidden.bs.modal', function () { try{ if(lastFocus) lastFocus.focus(); }catch(e){} });
             });
-                // Ensure modal focus on open (fallback) and restore focus after close
-                (function(){
-                    var lastFocus;
-                    document.addEventListener('click', function(e){
-                        var t = e.target.closest('[data-toggle="modal"]');
-                        if (t) { lastFocus = document.activeElement; }
-                    }, true);
-                    $('#exampleModalCenter').on('shown.bs.modal', function () { $(this).focus(); });
-                    $('#exampleModalCenter').on('hidden.bs.modal', function () { try{ if(lastFocus) lastFocus.focus(); }catch(e){} });
-                })();
-            });
-        </script>
+        })();
+    </script>
 </body>
 
 </html>
