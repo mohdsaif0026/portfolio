@@ -1177,6 +1177,27 @@
         </div>
     </div>
 
+    <!-- Thank You modal shown after successful contact form submit -->
+    <div class="modal fade" id="thanksModal" tabindex="-1" role="dialog" aria-labelledby="thanksModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="thanksModalTitle">Thank you!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your message has been sent. I'll get back to you soon.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="rn-btn" data-dismiss="modal"><span>Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JS (deferred to improve initial render) ============================================ -->
     <!-- Load local jQuery first for plugins that expect it -->
     <script defer src="assets/js/vendor/jquery.js"></script>
@@ -1215,6 +1236,32 @@
             if(next){
                 var base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
                 next.value = base + 'thanks.html';
+            }
+            // Progressive enhancement: intercept submit to show a Thank You modal instead of navigating
+            var form = document.getElementById('contact-form');
+            if(form){
+                form.addEventListener('submit', function(ev){
+                    // If the browser says invalid, let it show native messages
+                    if(!form.checkValidity()){ return; }
+                    ev.preventDefault();
+                    var data = new FormData(form);
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    }).then(function(res){
+                        if(res.ok){
+                            try{ $('#thanksModal').modal('show'); }catch(e){}
+                            form.reset();
+                        } else {
+                            // On Formspree error, fallback to normal navigation
+                            form.submit();
+                        }
+                    }).catch(function(){
+                        // Network error: fallback to normal navigation
+                        form.submit();
+                    });
+                });
             }
             $(document).ready(function(){
                 var lastFocus;
