@@ -23,13 +23,37 @@
             imJs.smothScroll();
             imJs.smothScroll_Two();
             imJs.stickyAdjust();
-            imJs.testimonialActivation();
+            // Lazy-init heavy components to reduce initial main-thread work
+            imJs.lazyInit('.testimonial-activation', imJs.testimonialActivation);
             imJs.contactForm();
-            imJs.wowActive();
-            imJs.awsActivation();
+            imJs.lazyInit('[data-aos], .aos-init', function(){ imJs.awsActivation(); });
+            imJs.lazyInit('.testimonial-item-one, .portfolio-slick-activation, .blog-slick-activation', imJs.testimonialActivation);
+            imJs.lazyInit('.particles-js, #particles-js', function(){ if (window.particlesJS) { try { particlesJS.load && particlesJS.load('particles-js','assets/js/vendor/particles.json'); } catch(e){} } });
+            imJs.lazyInit('.wow', imJs.wowActive);
             imJs.demoActive();
             imJs.activePopupDemo();
-            
+        },
+
+        // lazy-init helper: observe a selector and call fn when an element matching it enters viewport
+        lazyInit: function(selector, fn) {
+            try{
+                var el = document.querySelector(selector);
+                if (!el) { return; }
+                if ('IntersectionObserver' in window) {
+                    var io = new IntersectionObserver(function(entries, observer) {
+                        entries.forEach(function(entry){
+                            if (entry.isIntersecting) {
+                                try { fn(); } catch(e){ console.warn('lazyInit error', e); }
+                                observer.disconnect();
+                            }
+                        });
+                    }, {rootMargin: '200px'});
+                    io.observe(el);
+                } else {
+                    // fallback: run after a short delay
+                    setTimeout(function(){ try{ fn(); }catch(e){console.warn(e);} }, 1500);
+                }
+            } catch (e) { console.warn('lazyInit overall error', e); }
         },
 
         

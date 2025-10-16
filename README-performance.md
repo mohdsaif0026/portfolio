@@ -37,6 +37,28 @@ Next recommended steps (you should run these locally)
 3) Add caching & compression on server
    - Configure your web server (nginx, Apache, Cloudflare) to serve far-future cache headers for static assets, enable gzip/Brotli compression and set proper content-type and Vary headers.
 
+  Example nginx snippet (add to your server block or an include file):
+
+  ```nginx
+  # Cache static assets for 30 days and set proper headers
+  location ~* \.(?:css|js|jpg|jpeg|gif|png|svg|webp|ico)$ {
+     expires 30d;
+     add_header Cache-Control "public, max-age=2592000, immutable";
+     access_log off;
+  }
+
+  # Serve compressed assets (gzip) and accept precompressed files if present
+  gzip on;
+  gzip_types text/plain text/css application/javascript application/json image/svg+xml;
+  gzip_proxied any;
+  gzip_vary on;
+
+  # If you can enable Brotli (recommended), use ngx_brotli and advertise it
+  brotli on;
+  brotli_types text/plain text/css application/javascript application/json image/svg+xml;
+  brotli_comp_level 5;
+  ```
+
 4) Further JS improvements
    - Consider loading big libraries (AOS, particles, slick) only on pages/sections that use them (code-splitting) and lazy-init them when the section enters the viewport.
    - Defer animation libraries until after user interaction or after LCP to avoid competition for main thread.
