@@ -420,7 +420,14 @@
         },
 
     }
-    imJs.m();
 
+    // Initialize when DOM is ready. This ensures vendor plugins may be loaded later without errors
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            try { imJs.m(); } catch (e) { console.warn('imJs init error', e); }
+        });
+    } else {
+        try { imJs.m(); } catch (e) { console.warn('imJs init error', e); }
+    }
 
 })(jQuery, window)

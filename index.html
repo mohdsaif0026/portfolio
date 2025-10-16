@@ -25,6 +25,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Preload hero image (helps LCP) -->
     <link rel="preload" as="image" href="assets/images/mdsaif.png">
+        <style>
+            /* tiny critical CSS to reserve portfolio thumbnail space and avoid CLS */
+            .rn-portfolio .thumbnail{height:200px;overflow:hidden}
+            .rn-portfolio .thumbnail img{width:100%;height:100%;object-fit:cover}
+        </style>
     <!-- Load vendor CSS used for above-the-fold quickly, defer the rest -->
     <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css"></noscript>
@@ -1156,6 +1161,24 @@
     <script defer src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
     <script defer src="assets/js/main.js"></script>
+    <script>
+        // Load non-critical heavy libraries after main JS and after the browser is idle
+        (function () {
+            function loadScript(src) {
+                var s = document.createElement('script'); s.src = src; s.async = true; document.body.appendChild(s);
+            }
+            var libs = [
+                'assets/js/vendor/particles.js',
+                'assets/js/vendor/aos.js',
+                'assets/js/vendor/wow.js'
+            ];
+            function loadLibs() {
+                for (var i = 0; i < libs.length; i++) loadScript(libs[i]);
+            }
+            if ('requestIdleCallback' in window) requestIdleCallback(loadLibs, {timeout:2000});
+            else setTimeout(loadLibs, 1500);
+        })();
+    </script>
     <script>
         $(document).ready(function () {
             $('#contact-form').on('submit', function (event) {

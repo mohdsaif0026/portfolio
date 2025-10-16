@@ -157,6 +157,14 @@
   white-space: nowrap;
 }
 
+/* Reserve thumbnail height to reduce CLS (adjust values as needed) */
+.rn-portfolio .thumbnail { display:block; height: 200px; overflow: hidden; }
+.rn-portfolio .thumbnail img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Accessible focus outlines */
+:focus { outline: none; }
+.rn-portfolio a:focus, .rn-btn:focus, .primary-menu a:focus { outline: 3px solid rgba(31,222,127,0.25); outline-offset: 3px; }
+
 html {
   margin: 0;
   padding: 0;
