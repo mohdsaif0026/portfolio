@@ -44,8 +44,7 @@
 
 
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap");
+/* Google Fonts are loaded via <link rel="preconnect"> and <link rel="preload"> in the HTML head for better performance. */
 :root {
   --color-primary: #1FDE7F;  // main clolor
   --color-secondary: #28C678; 
@@ -149,12 +148,19 @@
 * {
   box-sizing: border-box; }
 
+/* Accessible hidden text for screen readers */
+.sr-only {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
 html {
   margin: 0;
   padding: 0;
   font-size: 10px;
-  overflow: hidden;
-  overflow-y: auto;
   scroll-behavior: smooth; }
 
 body {
@@ -165,15 +171,7 @@ body {
   font-family: var(--font-primary);
   color: var(--color-body);
   font-weight: var(--p-regular); }
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    body {
-      overflow: hidden; } }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    body {
-      overflow: hidden; } }
-  @media only screen and (max-width: 767px) {
-    body {
-      overflow: hidden; } }
+  /* Removed global overflow:hidden rules that prevented proper scrolling and caused layout issues */
 
 h1,
 h2,

@@ -5,30 +5,60 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Mohd Saif Ansari's Personal Portfolio</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Mohd Saif Ansari is a Coder">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mohd Saif Ansari - Personal Portfolio</title>
+    <!-- Allow indexing (remove during staging only if needed) -->
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Mohd Saif Ansari — backend developer, cloud enthusiast and open-source contributor.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://your-domain.example/">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Mohd Saif Ansari - Personal Portfolio">
+    <meta property="og:description" content="Backend developer, cloud enthusiast and open-source contributor.">
+    <meta property="og:image" content="assets/images/mdsaif.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <!-- CSS 
     ============================================ -->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/vendor/aos.css">
-    <link rel="stylesheet" href="assets/css/plugins/feature.css">
+    <!-- Preconnect to Google Fonts and load the font CSS for faster rendering -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preload hero image (helps LCP) -->
+    <link rel="preload" as="image" href="assets/images/mdsaif.png">
+    <!-- Load vendor CSS used for above-the-fold quickly, defer the rest -->
+    <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css"></noscript>
+    <link rel="preload" href="assets/css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+    <!-- Other non-critical CSS loaded with media swap (will be applied after load) -->
+    <link rel="stylesheet" href="assets/css/vendor/slick.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/vendor/aos.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="assets/css/plugins/feature.css" media="print" onload="this.media='all'">
 
     <!-- Favicons -->
     <link href="assets/images/favicon.ico" rel="icon">
     <link href="assets/images/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Style css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Structured data (Organization / Person minimal) -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Mohd Saif Ansari",
+            "url": "https://your-domain.example/",
+            "sameAs": [
+                "https://github.com/mohdsaif0026",
+                "https://www.linkedin.com/in/mohd-saif-430852226/"
+            ]
+        }
+        </script>
 </head>
 
 <body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
+    <a class="sr-only" href="#home">Skip to content</a>
 
     <!-- Start Header -->
-    <header class="rn-header haeder-default black-logo-version header--fixed header--sticky">
+    <header role="banner" class="rn-header haeder-default black-logo-version header--fixed header--sticky">
         <div class="header-wrapper rn-popup-mobile-menu m--0 row align-items-center">
             <!-- Start Header Left -->
             <div class="col-lg-2 col-6">
@@ -44,7 +74,7 @@
             <!-- Start Header Center -->
             <div class="col-lg-10 col-6">
                 <div class="header-center">
-                    <nav id="sideNav" class="mainmenu-nav navbar-example2 d-none d-xl-block">
+                    <nav id="sideNav" aria-label="Primary" class="mainmenu-nav navbar-example2 d-none d-xl-block">
                         <!-- Start Mainmanu Nav -->
                         <ul class="primary-menu nav nav-pills">
                             <li class="nav-item"><a class="nav-link smoth-animation active" href="#home">Home</a></li>
@@ -58,7 +88,7 @@
                     </nav>
                     <!-- Start Header Right  -->
                     <div class="header-right">
-                        <a class="rn-btn" target="_blank" href="#contacts"><span>Hire Me</span></a>
+                        <a class="rn-btn" target="_blank" rel="noopener noreferrer" href="#contacts"><span>Hire Me</span></a>
                         <div class="hamberger-menu d-block d-xl-none">
                             <i id="menuBtn" class="feather-menu humberger-menu"></i>
                         </div>
@@ -103,10 +133,10 @@
                     <span class="title">find with me</span>
                     <ul class="social-share d-flex liststyle">
 
-                        <li class="github"><a href="https://github.com/mohdsaif0026"><i data-feather="github"></i></a>
+                        <li class="github"><a href="https://github.com/mohdsaif0026" target="_blank" rel="noopener noreferrer"><i data-feather="github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
                         </li>
-                        <li class="linkedin"><a href="https://www.linkedin.com/in/mohd-saif-430852226/"><i
-                                    data-feather="linkedin"></i></a>
+                        <li class="linkedin"><a href="https://www.linkedin.com/in/mohd-saif-430852226/" target="_blank" rel="noopener noreferrer"><i
+                                    data-feather="linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
                         </li>
                     </ul>
                 </div>
@@ -119,7 +149,7 @@
 
 
 
-    <main class="main-page-wrapper">
+    <main id="maincontent" role="main" class="main-page-wrapper">
 
         <!-- Start Slider Area -->
         <div id="home" class="rn-slider-area">
@@ -158,12 +188,12 @@
                                         <div class="social-share-inner-left">
                                             <span class="title">Follow Me</span>
                                             <ul class="social-share d-flex liststyle">
-                                                <li class="github"><a href="https://github.com/mohdsaif0026"><i
-                                                            data-feather="github"></i></a>
+                                                <li class="github"><a href="https://github.com/mohdsaif0026" target="_blank" rel="noopener noreferrer"><i
+                                                            data-feather="github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
                                                 </li>
                                                 <li class="linkedin"><a
-                                                        href="https://www.linkedin.com/in/mohd-saif-430852226/"><i
-                                                            data-feather="linkedin"></i></a>
+                                                        href="https://www.linkedin.com/in/mohd-saif-430852226/" target="_blank" rel="noopener noreferrer"><i
+                                                            data-feather="linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -186,7 +216,7 @@
                         <div class="order-1 order-lg-2 col-lg-5">
                             <div class="thumbnail">
                                 <div class="inner">
-                                    <img src="assets/images/mdsaif.png" alt="Personal Portfolio Images">
+                                    <img src="assets/images/mdsaif.png" alt="Portrait of Mohd Saif Ansari" width="540" height="540" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -212,7 +242,7 @@
 
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -232,7 +262,7 @@
                     <!-- End SIngle Service -->
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -252,7 +282,7 @@
                     <!-- End SIngle Service -->
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -271,7 +301,7 @@
                     <!-- End SIngle Service -->
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -292,7 +322,7 @@
                     <!-- End SIngle Service -->
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -312,7 +342,7 @@
                     <!-- End SIngle Service -->
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
@@ -353,14 +383,16 @@
                     </div>
                 </div>
 
+                <div class="row row--25 mt--10 mt_md--10 mt_sm--10">
+
                 <!-- Start Single Portfolio -->
                 <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
-                    class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                    class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                     <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                         <div class="inner">
                             <div class="thumbnail">
                                 <a href="javascript:void(0)">
-                                    <img src="assets/images/port/12.jpg" alt="Personal Portfolio Images">
+                                    <img src="assets/images/port/12.jpg" alt="CS News project screenshot" width="800" height="500" loading="lazy">
                                 </a>
                             </div>
                             <div class="content">
@@ -383,12 +415,12 @@
 
                 <!-- Start Single Portfolio -->
                 <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
-                    class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                    class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                     <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                         <div class="inner">
                             <div class="thumbnail">
                                 <a href="javascript:void(0)">
-                                    <img src="assets/images/port/13.jpg" alt="Personal Portfolio Images">
+                                    <img src="assets/images/port/13.jpg" alt="SMM panel screenshot" width="800" height="500" loading="lazy">
                                 </a>
                             </div>
                             <div class="content">
@@ -411,12 +443,12 @@
 
                 <!-- Start Single Portfolio -->
                 <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
-                    class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                    class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                     <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                         <div class="inner">
                             <div class="thumbnail">
                                 <a href="javascript:void(0)">
-                                    <img src="assets/images/port/14.jpg" alt="Personal Portfolio Images">
+                                    <img src="assets/images/port/14.jpg" alt="Movie Search Engine screenshot" width="800" height="500" loading="lazy">
                                 </a>
                             </div>
                             <div class="content">
@@ -437,15 +469,14 @@
                 </div>
                 <!-- End Single Portfolio -->
 
-                <div class="row row--25 mt--10 mt_md--10 mt_sm--10">
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/01.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/01.jpg" alt="Mini Calendar project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -467,12 +498,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/02.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/02.jpg" alt="Digital Clock project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -495,12 +526,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/03.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/03.jpg" alt="Text to Speech project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -522,12 +553,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/04.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/04.jpg" alt="Stopwatch project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -549,12 +580,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/05.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/05.jpg" alt="Calculator project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -576,12 +607,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/07.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/07.jpg" alt="Image Search Engine App screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -603,12 +634,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/09.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/09.jpg" alt="Analog Clock project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -630,12 +661,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/10.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/10.jpg" alt="Expanding Cards project screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -658,12 +689,12 @@
 
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
-                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
+                        class="col-12 col-md-6 col-lg-4 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/port/11.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/port/11.jpg" alt="Contact Us page screenshot" width="600" height="400" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="content">
@@ -992,7 +1023,7 @@
                     <div class="col-lg-5">
                         <div class="contact-about-area">
                             <div class="thumbnail">
-                                <img src="assets/images/3d/Saly-31.png" alt="contact-img">
+                                <img src="assets/images/3d/Saly-31.png" alt="Contact illustration" width="700" height="700" loading="lazy">
                             </div>
                             <div class="title-area">
                                 <h4 class="title">Mohd Saif Ansari</h4>
@@ -1024,7 +1055,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
-                                            <input class="form-control form-control-lg" name="contact-name"
+                                            <input aria-label="Your name" class="form-control form-control-lg" name="contact-name"
                                                 id="contact-name" type="text">
                                         </div>
                                     </div>
@@ -1032,7 +1063,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-phone">Phone Number</label>
-                                            <input class="form-control" name="contact-phone" id="contact-phone"
+                                            <input aria-label="Phone number" class="form-control" name="contact-phone" id="contact-phone"
                                                 type="text">
                                         </div>
                                     </div>
@@ -1040,15 +1071,15 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-email">Email</label>
-                                            <input class="form-control form-control-sm" id="contact-email"
+                                            <input aria-label="Email address" class="form-control form-control-sm" id="contact-email"
                                                 name="contact-email" type="email">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label for="subject">subject</label>
-                                            <input class="form-control form-control-sm" id="subject" name="subject"
+                                            <label for="subject">Subject</label>
+                                            <input aria-label="Subject" class="form-control form-control-sm" id="subject" name="subject"
                                                 type="text">
                                         </div>
                                     </div>
@@ -1056,7 +1087,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Your Message</label>
-                                            <textarea name="contact-message" id="contact-message" cols="30"
+                                            <textarea aria-label="Message" name="contact-message" id="contact-message" cols="30"
                                                 rows="10"></textarea>
                                         </div>
                                     </div>
@@ -1100,7 +1131,7 @@
 
                         <div class="logo">
                             <a href="index.html">
-                                <img src="assets/images/mdsaif.png" alt="logo">
+                                <img src="assets/images/mdsaif.png" alt="Mohd Saif Ansari logo" width="160" height="60" loading="lazy">
                             </a>
                         </div>
 
@@ -1112,20 +1143,19 @@
     </div>
     <!-- End Footer Area -->
 
-    <!-- JS ============================================ -->
-    <script src="assets/js/vendor/jquery.js"></script>
-    <script src="assets/js/vendor/modernizer.min.js"></script>
-    <script src="assets/js/vendor/feather.min.js"></script>
-    <script src="assets/js/vendor/slick.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.js"></script>
-    <script src="assets/js/vendor/text-type.js"></script>
-    <script src="assets/js/vendor/wow.js"></script>
-    <script src="assets/js/vendor/aos.js"></script>
-    <script src="assets/js/vendor/particles.js"></script>
+    <!-- JS (deferred to improve initial render) ============================================ -->
+    <!-- Load local jQuery first for plugins that expect it -->
+    <script defer src="assets/js/vendor/jquery.js"></script>
+    <script defer src="assets/js/vendor/modernizer.min.js"></script>
+    <script defer src="assets/js/vendor/feather.min.js"></script>
+    <script defer src="assets/js/vendor/slick.min.js"></script>
+    <script defer src="assets/js/vendor/bootstrap.js"></script>
+    <script defer src="assets/js/vendor/text-type.js"></script>
+    <script defer src="assets/js/vendor/wow.js"></script>
+    <script defer src="assets/js/vendor/aos.js"></script>
+    <script defer src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
-    <script src="assets/js/main.js"></script>
-    <!-- contact -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="assets/js/main.js"></script>
     <script>
         $(document).ready(function () {
             $('#contact-form').on('submit', function (event) {
